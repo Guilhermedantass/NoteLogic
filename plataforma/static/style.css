@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Raleway:wght@300;400;500&family=Roboto:wght@300;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover{
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.login{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.login-container-formulario, .login-container-imagem{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+}
+
+.login-container-formulario{
+    background-color: #543EFE;
+}
+
+.login-formulario{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 350px;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.formulario-cabecalho{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-formulario h2{
+    font-size: 2.5em;
+    font-family: 'Anton', sans-serif;
+    font-weight: 600;
+}
+.login-formulario p{
+    font-size: 1.0em;
+    font-weight: 100;
+}
+.login-formulario a{
+    border-bottom: 1px solid white;
+}
+
+
+#username, #senha, #entrar{
+    width: 350px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    outline: 0;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #543EFE;
+
+}
+
+#entrar{
+    cursor: pointer;
+    margin-top: 20px;
+    color: #543EFE;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: white;
+    box-shadow: 0 0 30px 2px black;
+}
+#entrar:hover{
+    background-color: #543EFE;
+    color: white;
+}
+
+
+
+.formulario-subitens{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.login-img{
+    width: 80%;
+    height: auto;
+}
+
+@media (max-width: 750px) {
+    .login-container-formulario{
+        width: 100vw;
+        order: 2;
+    }
+    .login-container-imagem{
+        order: 1;
+        width: 100%;
+    }
+    .login-img{
+        width: 200px;
+    };
+    
+}
+
+/* ---------------------------------   */
+
+.main-cadastro {
+    display: flex;
+    height: 100vh;
+    background-image: linear-gradient(to right, #543EFE 0, #543EFE 25%, white 25%)
+    ;
+}
+
+.container-cadastro-imagem{
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-cadastro{
+    width: 90%;
+    height: auto;
+
+}
+
+.container-cadastro-form{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 100vh;
+    align-items: left;
+    justify-content:center;
+    gap: 30px;
+}
+
+.cadastro-titulo{
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #543EFE;
+}
+
+.cadastro-formulario{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    font-family: 'Montserrat', sans-serif;
+    gap: 10px;
+}
+.container-cadastro-input-text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container-cadastro-input-usuario,.container-cadastro-input-nome{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#username-cadastro, #nome-cadastro, #senha-cadastro, #confirme-senha-cadastro{
+    border: 1px solid #202020;
+    border-radius: 10px;
+    height: 35px;
+    width: 220px;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+#email-cadastro{
+    border: 1px solid #202020;
+    border-radius: 10px;
+    height: 35px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+#botao-cadastrar{
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #543EFE;
+}
+
+#botao-cadastrar:hover{
+    box-shadow: 0 0 10px 1px black;
+}
+
+.link-login{
+    color: #543EFE;
+    font-weight: 600;
+}
+
+/*--------------------------------------*/
+
+.cabecalho-plataforma {
+    height: 8vh;
+    width: 100vw;
+    display: flex;
+    background: #543EFE;
+    align-items: center;
+}
+
+.logo-procurar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cabecalho-logo{
+    margin-left: 30px !important;
+    width: 35px;
+    height: 35px;
+}
+
+#procurar{
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 18px;
+
+}
+
+.plataforma-container{
+    display: flex;
+    width: 100vw;
+    height: 92vh;
+}
+
+.container-todo{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 60vw;
+    height: 100%;
+    padding-left: 10vw;
+}
+
+
+.todo-titulo{
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #543EFE;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+#check{
+    cursor: pointer;
+}
+
+.task{
+    width: 80%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+}
+.check-and-text{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 8px;
+}
+.date-and-type{
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.date{
+    color: green;
+    font-size: .8rem;
+    padding-left: 20px;
+    font-weight: 500;
+}
+.type{
+    color: purple;
+    font-size: .8rem;
+    padding-left: 20px;
+    font-weight: 500;
+}
+
+
+.container-add-task{
+    display: flex;
+}
+#add-task{
+    width: 80%;
+    border: none;
+    padding: 10px;
+}
+
+.plataforma-container-img{
+    width: 40vw;
+    height: 100%;
+}

@@ -1,0 +1,35 @@
+{% extends "base.html"  %}
+{% load static %}
+{% block conteudo %}
+
+<main class="login">
+   <div class="login-container-formulario">
+       <form action="{% url 'logar' %}" method="POST" class="login-formulario">{% csrf_token %}
+           
+           <div class="formulario-cabecalho">
+               <h2>Vamos fazer login</h2>
+               <p href="#">Bem-vindo a nossa página! <a href="{% url 'cadastro' %}"> Cadastre-se</a></p>
+           </div>
+           <div class="login-container-inputs">
+               <label for="username">Usuário:</label>
+               <input type="text" name="username" id="username" required>
+               <label for="senha">Senha:</label>
+               <input type="password" name="senha" id="senha" required>       
+               <div class="formulario-subitens">
+                   <div class="container-lembrar">
+                       <input type="checkbox" name="lembrar-senha" id="lembrar-senha">
+                       <label for="lembrar-senha">Lembrar-se</label>
+                   </div>
+                   <a href="#">Esqueceu a senha?</a>
+               </div>
+               <input type="submit" value="Entrar" id="entrar">
+               
+           </div>
+       </form>
+   </div>
+   <div class="login-container-imagem">
+       <img src="{% static 'login.svg' %}" alt="Imagem de login" class="login-img">
+   </div>
+</main>
+
+{% endblock %}

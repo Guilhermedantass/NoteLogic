@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block conteudo %}
+<main class="main-cadastro">
+  <div class="container-cadastro-imagem">
+      <img src="{% static 'cadastro.svg' %}" alt="imagem cadastro" class="imagem-cadastro">
+  </div>
+  <div class="container-cadastro-form">
+      <h2 class="cadastro-titulo">Crie sua conta</h2>
+      <form action="{% url 'cadastro' %}" class="cadastro-formulario" method="POST">{% csrf_token %}
+              <div class="container-cadastro-input-text">
+                  <div class="container-cadastro-input-usuario">
+                      <label for="username">Usuário:</label>
+                      <input type="text" name="username" id="username-cadastro" required>
+                  </div>
+                 <div class="container-cadastro-input-nome">
+                  <label for="nome">Nome:</label>
+                  <input type="text" name="nome" id="nome-cadastro" required>
+                 </div>
+                  
+              </div>
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email-cadastro" required>
+              <div class="container-cadastro-input-text">
+                  <div class="container-cadastro-input-usuario">
+                      <label for="senha">Senha:</label>
+                      <input type="password" name="senha" id="senha-cadastro" required>
+                  </div>
+                  <div class="container-cadastro-input-usuario">
+                      <label for="confirme-senha">Confirme senha:</label>
+                      <input type="password" name="confirme-senha" id="confirme-senha-cadastro" required>
+                  </div>         
+              </div>
+              <div>
+                  <input type="checkbox" name="lembrar-senha" id="lembrar-senha">
+                  <label for="lembrar-senha">lembre minha senha</label>
+              </div>
+              <input type="submit" value="Criar Conta" id="botao-cadastrar">
+              <p class="texto-voltar-login">Já tem uma conta? <a href="{% url 'logar' %}" class="link-login">Faça login</a></p>
+      </form>
+  </div>
+</main>
+  {% endblock %}

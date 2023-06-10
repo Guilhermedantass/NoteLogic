@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<header class="cabecalho-plataforma">
+    <div class="logo-procurar">
+        <a href=""><img src="{% static 'logo.png' %}" alt="logo imagem" class="cabecalho-logo"></a>
+        <input type="text" name="procurar" id="procurar" placeholder="Procurar">
+    </div>
+</header>
+
+<main class="plataforma-container">
+    <div class="container-todo">
+        <h2 class="todo-titulo">Today</h2>
+        <div class="task">
+            <div class="check-and-text">
+                <input type="checkbox" name="check" id="check">
+                <label for="check">Ler meus e-mails</label>
+            </div>
+            <div class="date-and-type">
+                <div>
+                    <p  class="date">10:10 AM</p>
+                </div>
+                <div class="type">
+                    WORK
+                </div>
+            </div>
+        </div>
+        <div class="task">
+            <div class="check-and-text">
+                <input type="checkbox" name="check" id="check">
+                <label for="check">Estudar VGA</label>
+            </div>
+            <div class="date-and-type">
+                <div>
+                    <p class="date">10:10 AM</p>
+                </div>
+                <div class="type">
+                    WORK
+                </div>
+            </div>
+        </div>
+        <div class="container-add-task">
+            <form action="" method="post">
+                <input type="text" name="add-task" id="add-task" placeholder="Add task">
+            </form>
+        </div>
+    </div>
+    <div class="plataforma-container-img">
+        <img src="{% static 'to-do-list.svg' %}" alt="to-do-list imagem">
+    </div>
+
+</main>
+
+{% endblock %}
