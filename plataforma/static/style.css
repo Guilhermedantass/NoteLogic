@@ -24,6 +24,11 @@ body {
     overflow: hidden;
 }
 
+.d-flex{
+    display: flex !important;
+    gap: 5px;
+}
+
 .login{
     display: flex;
     flex-direction: row;
@@ -237,6 +242,7 @@ body {
     display: flex;
     background: #543EFE;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo-procurar{
@@ -245,19 +251,30 @@ body {
     gap: 10px;
 }
 
+.logo-procurar a{
+    font-family: 'Anton', sans-serif;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;    
+}
+
+
 .cabecalho-logo{
     margin-left: 30px !important;
     width: 35px;
     height: 35px;
 }
 
-#procurar{
-    height: 35px;
-    border: none;
-    border-radius: 10px;
-    padding-left: 10px;
-    font-size: 18px;
-
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
+    padding-right: 20px;
+    color: white;
+    font-weight: 500;
 }
 
 .plataforma-container{
@@ -301,12 +318,45 @@ body {
     align-items: center;
     justify-content: left;
     gap: 8px;
+    justify-content: space-between;
 }
 .date-and-type{
     height: 25px;
     display: flex;
     justify-content: space-between;
 }
+
+.botao-delete{
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    border: none;
+    color: #252525;
+}
+.botao-delete:hover{  
+   color: red;
+}
+
+.botao-done, .botao-undone{
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    border: none;
+}
+
+.botao-undone{
+    color: green;
+}
+.botao-done{
+    color: black;
+}
+
+.done{
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+
 .date{
     color: green;
     font-size: .8rem;
@@ -320,14 +370,19 @@ body {
     font-weight: 500;
 }
 
-
 .container-add-task{
     display: flex;
+    width: 80%;
+}
+
+.form-add{
+    width: 100%;
 }
 #add-task{
-    width: 80%;
+    width: 100%;
     border: none;
     padding: 10px;
+    outline: none;
 }
 
 .plataforma-container-img{

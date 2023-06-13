@@ -5,8 +5,8 @@ from datetime import datetime
 
 # Create your models here.
 
-class Nota(models.Model):
+class Task(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
-    titulo = models.CharField(max_length=60)
-    corpo = models.TextField()
+    task = models.CharField(max_length=60)
     data = models.DateTimeField(default=datetime.now, blank=True)
+    done = models.BooleanField(default=False)

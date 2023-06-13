@@ -4,45 +4,65 @@
 
 <header class="cabecalho-plataforma">
     <div class="logo-procurar">
-        <a href=""><img src="{% static 'logo.png' %}" alt="logo imagem" class="cabecalho-logo"></a>
-        <input type="text" name="procurar" id="procurar" placeholder="Procurar">
+        <a href=""><img src="{% static 'logo.png' %}" alt="logo imagem" class="cabecalho-logo"> </a>
+        <a href="">Note<span>Logic</span></a>
     </div>
+    <nav>
+        <ul class="nav">
+            <li class="active"><a href="" data-toggle="tab">HOME</a></li>
+            <li><a href="" data-toggle="tab">WORKSPACE</a></li>
+            <li><a href="{% url 'logout_view' %}" data-toggle="tab">SAIR</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main class="plataforma-container">
+    <sidebar>
+
+    </sidebar>
     <div class="container-todo">
         <h2 class="todo-titulo">Today</h2>
+        {% for task in task %}
         <div class="task">
             <div class="check-and-text">
-                <input type="checkbox" name="check" id="check">
-                <label for="check">Ler meus e-mails</label>
+                {% if task.done == True %}
+                <div class="d-flex">
+                    <form action="{% url 'undone_task' %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="done-task" value="{{task.id}}">
+                        <button type="submit" class="botao-undone"><span class="item"><i class="fa fa-check"></i></span></button>
+                    </form>
+                    <label for="check" class="done" >{{task.task}}</label>
+                </div>
+                {% endif %}
+
+                {% if task.done == False %}
+                <div class="d-flex">
+                    <form action="{% url 'done_task' %}" method="post">{% csrf_token %}
+                        <input type="hidden" name="done-task" value="{{task.id}}">
+                        <button type="submit" class="botao-done"><i class="fa fa-check"></i></button>
+                    </form>
+                    <label for="check" >{{task.task}}</label>
+                </div>
+                {% endif %}
+                
+                <form action="{% url 'delete_task' %}" method="post">{% csrf_token %}
+                    <input type="hidden" name="id" value="{{task.id}}" />
+                    <button type="submit" class="botao-delete"><span class="item"><i class="fa fa-trash"></i></span></button>
+                </form>           
             </div>
             <div class="date-and-type">
                 <div>
-                    <p  class="date">10:10 AM</p>
+                    <p class="date">{{task.data}}</p>
                 </div>
                 <div class="type">
                     WORK
                 </div>
             </div>
         </div>
-        <div class="task">
-            <div class="check-and-text">
-                <input type="checkbox" name="check" id="check">
-                <label for="check">Estudar VGA</label>
-            </div>
-            <div class="date-and-type">
-                <div>
-                    <p class="date">10:10 AM</p>
-                </div>
-                <div class="type">
-                    WORK
-                </div>
-            </div>
-        </div>
+        {% endfor %}
         <div class="container-add-task">
-            <form action="" method="post">
-                <input type="text" name="add-task" id="add-task" placeholder="Add task">
+            <form action="{% url 'add_task' %}" method="post" class="form-add"> {% csrf_token %}
+                <input type="text" name="task" id="add-task" placeholder="Add task">
             </form>
         </div>
     </div>

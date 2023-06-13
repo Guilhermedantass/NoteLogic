@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect 
 from django.contrib.auth.models import User
-from .models import Nota
+from .models import Task
 
 # Create your views here.
 
@@ -53,19 +53,41 @@ def logout_view(request):
 @login_required(login_url='logar')
 def plataforma(request):
     username = request.user
-    notas = Nota.objects.filter().order_by('-id')
-    context = {"notas": notas, 'logado': True, 'username': username}
+    task = Task.objects.filter(username=username).order_by('id')
+    context = {"task": task, 'logado': True, 'username': username}
     return render(request, 'plataforma.html', context)
 
 
 @login_required(login_url='logar')
-def cadastro_nota(request):
+def add_task(request):
     if request.method == 'POST':
-        titulo = request.POST.get('titulo')
-        corpo = request.POST.get('corpo')
+        task = request.POST.get('task')
         username = request.user
+        task = Task.objects.create(
+            username=username, task=task)
+        task.save()
+        return redirect('plataforma')
 
-        nota = Nota.objects.create(
-            titulo=titulo, username=username, corpo=corpo)
-        nota.save()
+@login_required(login_url='logar')
+def delete_task(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        username = request.user
+        Task.objects.filter(id=id).delete()
+        return redirect('plataforma')
+
+@login_required(login_url='logar')
+def done_task(request):
+    if request.method == 'POST':
+        id = request.POST.get('done-task')
+        username = request.user
+        Task.objects.filter(id=id).update(done=True)
+        return redirect('plataforma')
+
+@login_required(login_url='logar')
+def undone_task(request):
+    if request.method == 'POST':
+        id = request.POST.get('done-task')
+        username = request.user
+        Task.objects.filter(id=id).update(done=False)
         return redirect('plataforma')
