@@ -17,7 +17,6 @@ NoteLogic é um aplicativo de lista de tarefas (ToDo list) desenvolvido com Djan
 - CSS
 - FontAwesome
 
-### Capturas de Tela 📸
 
 ## Capturas de Tela 📸
 
